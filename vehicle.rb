@@ -18,89 +18,34 @@ class Vehicle
   def number_of_gears
     4
   end
+
 end
 
-class ElectricCar
-  def initialize(avg)
-    @average_speed = avg
-  end
+class NoWingsError < StandardError
 
-  def travel_time(distance)
-    distance / @average_speed
-  end
+end
 
-  def number_of_wheels
-    4
-  end
-
-  def number_of_engines
-    1
-  end
-
+class ElectricCar < Vehicle
   def number_of_gears
     1
   end
 end
 
-class HybridCar
-  def initialize(avg)
-    @average_speed = avg
-  end
-
-  def travel_time(distance)
-    distance / @average_speed
-  end
-
-  def number_of_wheels
-    4
-  end
-
+class HybridCar < Vehicle
   def number_of_engines
     2
   end
-
-  def number_of_gears
-    4
-  end
 end
 
-class Motorcycle
-  def initialize(avg)
-    @average_speed = avg
-  end
-
-  def travel_time(distance)
-    distance / @average_speed
-  end
-
+class Motorcycle < Vehicle
   def number_of_wheels
     2
   end
-
-  def number_of_engines
-    1
-  end
-
-  def number_of_gears
-    4
-  end
 end
 
-class Plane
-  def initialize(avg)
-    @average_speed = avg
-  end
-
-  def travel_time(distance)
-    distance / @average_speed
-  end
-
+class Plane < HybridCar
   def number_of_wheels
     6
-  end
-
-  def number_of_engines
-    2
   end
 
   def number_of_gears
@@ -112,25 +57,23 @@ class Plane
   end
 end
 
-class Bicycle
-  def initialize(avg, ngear)
+class Bicycle < Vehicle
+
+  def initialize(avg, ngears)
     @average_speed = avg
-    @gears = ngear
+    @number_of_gears = ngears
   end
 
-  def travel_time(distance)
-    distance / @average_speed
-  end
-
-  def number_of_wheels
-    2
+  def number_of_gears
+    @number_of_gears
   end
 
   def number_of_engines
     0
   end
 
-  def number_of_gears
-    4
+  def number_of_wheels
+    2
   end
+
 end
