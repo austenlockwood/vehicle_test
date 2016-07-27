@@ -19,6 +19,9 @@ class Vehicle
     4
   end
 
+  def number_of_wings
+    raise NoWingsError
+  end
 end
 
 class NoWingsError < StandardError
